@@ -1,6 +1,7 @@
 __pycache__
 *.db
-database/database.py
+database/main/database.py
+database/catalog_data/*.csv
 venv
 
 
