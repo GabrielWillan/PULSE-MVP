@@ -4,12 +4,11 @@ import sqlite3 as sq
 import pandas as pd
 
 
+#Run load_Dataset once 
 def load_dataset():
     df = pd.read_csv("../database/catalog_data/Updated_ExerciseDataset.csv")
     catalog = df[["Exercise_Name", "muscle_gp" ,"Equipment"]].copy()
-    catalog = catalog.fillna("")
     rows = catalog.itertuples(index=False, name=None)
-
     db = sq.connect("../database/main/pulse.db")
     try:
         db.executemany(
@@ -24,6 +23,7 @@ def load_dataset():
         db.close()
 
 
+#exercises row checker
 def show_database():
     db = sq.connect("../database/main/pulse.db")
 

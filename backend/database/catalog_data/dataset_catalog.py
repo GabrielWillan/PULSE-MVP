@@ -10,5 +10,7 @@ df = df.sort_values(
     na_position="last",
 ).reset_index(drop=True)
 
+df = df.fillna("NONE")
+
 
 df.to_csv('Updated_ExerciseDataset.csv')
