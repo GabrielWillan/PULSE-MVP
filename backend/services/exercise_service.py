@@ -13,7 +13,7 @@ def load_dataset():
     try:
         db.executemany(
             """
-            INSERT INTO exercises(name, target, equipment)
+            INSERT INTO catalog(name, target, equipment)
             VALUES(?, ?, ?)
             """,
             rows,
@@ -29,7 +29,7 @@ def show_database():
 
     cursor = db.execute(
         """ 
-        SELECT name, target, equipment FROM exercises;
+        SELECT name, target, equipment FROM catalog;
         """
     )
     
@@ -38,3 +38,5 @@ def show_database():
     return results
 
 
+load_dataset()
+print(show_database())
